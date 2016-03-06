@@ -46,6 +46,13 @@ public class BadConsequence {
     public int getLevels(){ return levels; }
     public int getNHiddenTreasures(){ return nHiddenTreasures; }
     public int getNVisibleTreasures(){ return nVisibleTreasures; }
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+        return this.specificHiddenTreasures;
+    }
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+        return this.specificVisibleTreasures;
+    }
+
     @Override
     public String toString(){
         String bigText;
