@@ -23,6 +23,8 @@ public class Monster {
     }
     public String getName(){ return name; }
     public int getCombatLevel(){ return combatLevel; }
+    public BadConsequence getBadConsequence(){ return bc; }
+    public Prize getPrize(){ return prize; }
     @Override
     public String toString(){
         return "Nombre: "+name+"\n"+
