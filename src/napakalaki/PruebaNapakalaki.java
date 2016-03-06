@@ -143,7 +143,38 @@ public class PruebaNapakalaki {
         p = new Prize(1,1);
         monsters.add(new Monster("Bicéfalo",20,bc,p));
         
-        
+        System.out.println("Nivel de combate superior a 10");
+        for(Monster i : monsters){
+            if( i.getCombatLevel() >10 ){
+                System.out.println(i.toString());
+            }
+        }
+        System.out.println("Mal rollo sólo pérdida niveles");
+        for(Monster i : monsters){
+            if( i.getBadConsequence().getSpecificHiddenTreasures().isEmpty() &&
+                    i.getBadConsequence().getSpecificVisibleTreasures().isEmpty() &&
+                    ((i.getBadConsequence().getNHiddenTreasures()==10 &&
+                    i.getBadConsequence().getNVisibleTreasures()==10) ||
+                    (i.getBadConsequence().getNHiddenTreasures()==0 &&
+                    i.getBadConsequence().getNVisibleTreasures()==0))
+                    ){
+                System.out.println(i.toString());
+            }
+        }
+        System.out.println("Su buen rollo indique una ganancia de niveles superior a 1");
+        for(Monster i : monsters){
+            if(i.getPrize().getLevels() > 1){
+                System.out.println(i.toString());
+            }
+        }
+        System.out.println("Su mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles\n" +
+"y/o ocultos");
+        for(Monster i : monsters){
+            if( ! i.getBadConsequence().getSpecificHiddenTreasures().isEmpty() ||
+                    ! i.getBadConsequence().getSpecificVisibleTreasures().isEmpty()){
+                System.out.println(i.toString());
+            }
+        }
         
     }
     
