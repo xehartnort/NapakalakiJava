@@ -17,7 +17,6 @@ public class PruebaNapakalaki {
     /**
      * @param args the command line arguments
      */
-    private static final int MAX =10;
     
     public static void main(String[] args) {
        ArrayList <Monster> monsters = new ArrayList();
@@ -54,7 +53,7 @@ public class PruebaNapakalaki {
         monsters.add(new Monster("Ángeles de la noche ibicenca",14,bc,p));
         
         /*El gorrón en el umbral*/
-        bc = new BadConsequence("Pierdes todos tus tesoros visibles.",0,MAX,0);
+        bc = new BadConsequence("Pierdes todos tus tesoros visibles.",0,10,0);
         p = new Prize(3,1);
         monsters.add(new Monster("El gorrón en el umbral",10,bc,p));
         
