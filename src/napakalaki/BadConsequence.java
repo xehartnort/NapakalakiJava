@@ -18,6 +18,8 @@ public class BadConsequence {
     private int nHiddenTreasures;/*tesoros ocultos que se pierden*/
     private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
     private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
+    final static int MAXTREASURES=10;
+    
     /*Malos rollos que descartan un número de tesoros, indistintamente del tipo*/
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
         this.levels=levels;
@@ -27,10 +29,10 @@ public class BadConsequence {
     }
     /* Para malos rollos que implican la muerte*/
     public BadConsequence(String text){
-        this.levels=10;
+        this.levels=Player.MAXLEVEL;
         this.text=text;
-        this.nHiddenTreasures=10;
-        this.nVisibleTreasures=10;     
+        this.nHiddenTreasures=MAXTREASURES;
+        this.nVisibleTreasures=MAXTREASURES;     
     }
     /*Malos rollos que quitan tesoros específicos*/
     public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, 
@@ -52,11 +54,20 @@ public class BadConsequence {
     public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
         return this.specificVisibleTreasures;
     }
-
+    public void substractVisibleTreasure(Treasure t){}
+    public void substractHiddenTreasure(Treasure t){}
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        return this;
+    }
+    public boolean isEmpty(){
+        return  this.nHiddenTreasures+this.nVisibleTreasures == 0 &&
+                this.specificHiddenTreasures.isEmpty() &&
+                this.specificVisibleTreasures.isEmpty();
+    }
     @Override
     public String toString(){
         String bigText;
-        if( levels==10 && nHiddenTreasures==10 && nVisibleTreasures==10){
+        if( levels==Player.MAXLEVEL && nHiddenTreasures==MAXTREASURES && nVisibleTreasures==MAXTREASURES){
             bigText="Nivel: "+Integer.toString(levels)+"\n"+
                     "Descripcion: "+text+"\n"+
                     "Mal rollo muerte\n";

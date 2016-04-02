@@ -5,21 +5,10 @@
  */
 package napakalaki;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
  * @author xehartnort
  */
-public class PruebaNapakalaki {
-
-    /**
-     * @param args the command line arguments
-     */
-    
-    public static void main(String[] args) {
-        
-    }
-    
+public enum CombatResult {
+    WINGAME, WIN, LOSE
 }

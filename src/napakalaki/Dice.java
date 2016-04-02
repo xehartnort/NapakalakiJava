@@ -5,21 +5,16 @@
  */
 package napakalaki;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
  * @author xehartnort
  */
-public class PruebaNapakalaki {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Dice {
+    final private static Dice instance = null;
+   
+    private Dice(){}
     
-    public static void main(String[] args) {
-        
-    }
+    public static Dice getInstance(){ return instance; }
+    public int nextNumber(){ return 0; }
     
 }
