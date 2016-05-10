@@ -17,8 +17,11 @@ public class Prize {
         this.treasures=treasures;
         this.level=level;
     }
+    
     public int getTreasures(){ return treasures; }
+    
     public int getLevels(){ return level; }
+    
     @Override
     public String toString(){
         return "Tesoros: "+Integer.toString(treasures)+"\n"+
