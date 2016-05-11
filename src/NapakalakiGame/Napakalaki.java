@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 import java.util.ArrayList;
 
@@ -18,13 +18,12 @@ public class Napakalaki {
     private Monster currentMonster;
     private Player currentPlayer;
     private ArrayList<Player> players;
-    private CardDealer dealer;
+    private CardDealer dealer= CardDealer.getInstance();
     
     private Napakalaki()
     {
-        currentPlayerIndex = -1;
         players = new ArrayList<>();
-        dealer = CardDealer.getInstance();
+        currentPlayerIndex = -1;
     }
     
     private void initPlayers(ArrayList<String> names)
@@ -35,10 +34,13 @@ public class Napakalaki {
     
     private Player nextPlayer()
     {
-        if(currentPlayerIndex == -1) // Primera jugada
+        if(currentPlayerIndex == -1) // Si es el primer turno
             currentPlayerIndex = Dice.getInstance().nextNumber() % players.size();
         else
-            currentPlayerIndex = ( currentPlayerIndex +1 ) % players.size();
+        {
+            currentPlayerIndex++;                   
+            currentPlayerIndex %= players.size(); // De esta maneta se controla 
+        }                                         // que no se salga del vector
         return players.get(currentPlayerIndex);
     }
     

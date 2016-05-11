@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 /**
  *
@@ -12,7 +12,7 @@ package napakalaki;
 public class CultistPlayer extends Player
 {
     private static int totalCultistPlayers=0;
-    Cultist myCultistCard;
+    private Cultist myCultistCard;
     
     public CultistPlayer(Player p, Cultist c)
     {

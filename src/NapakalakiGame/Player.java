@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 import java.util.ArrayList;
 
@@ -12,17 +12,25 @@ import java.util.ArrayList;
  * @author xehartnort
  */
 public class Player {
-    final CardDealer dealer = CardDealer.getInstance();
+    private CardDealer dealer;
     final static int MAXLEVEL = 10;
     private String name;
     private int level;
-    private boolean dead=true;
+    private boolean dead;
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
     private BadConsequence pendingBadConsequence;
     
     public Player(String name)
-        { this.name = name; }
+    { 
+        this.level = 1;
+        this.name = name; 
+        this.dead = true;
+        this.hiddenTreasures = new ArrayList<>();
+        this.visibleTreasures = new ArrayList<>();
+        this.pendingBadConsequence = new NumericBadConsequence("Vacío",0,0,0);
+        this.dealer = CardDealer.getInstance();
+    }
     
     public Player(Player p)
     {
@@ -32,6 +40,7 @@ public class Player {
         this.visibleTreasures = p.visibleTreasures; //habría que ver si este nivel de copiado es suficiente
         this.name = p.name;
         this.pendingBadConsequence = p.pendingBadConsequence;
+        this.dealer = p.dealer;
     }
     
     public String getName()
@@ -145,6 +154,7 @@ public class Player {
     {
         String textoInicial = "\n\tName = " + name + 
                 " \n\tLevel = " + Integer.toString(level) + 
+                " \n\tCombatLevel = " + Integer.toString(getCombatLevel()) +
                 " \n\tPendingBadConsequence: { " + pendingBadConsequence.toString() +
                 "\n\t} \n\tDead = " + Boolean.toString(dead);
         String textoHiddenTreasures = " \n\tArray Hidden Treasures: { ";

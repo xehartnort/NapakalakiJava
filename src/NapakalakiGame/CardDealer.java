@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -207,7 +207,9 @@ public class CardDealer {
         prize = new Prize(1,1);
         unusedMonsters.add(new Monster("Bicéfalo", 20, badConsequence, prize));
 
+        
         // NUEVOS MONSTRUOS CON SECTARIOS
+        
         
         /* El mal indecible impronunciable */
         badConsequence = new SpecificBadConsequence("Pierdes 1 mano visible.", 0,
@@ -233,7 +235,8 @@ public class CardDealer {
         /* Felpuggoth */
         badConsequence = new SpecificBadConsequence("Pierdes tu casco y tu armadura visible. " +
                          " Pierdes tus manos ocultas", 0,
-                         new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.HELMET)), new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)));
+                         new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.HELMET)), 
+                        new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind.ONEHAND, TreasureKind.ONEHAND)));
         prize = new Prize(1,1);
         unusedMonsters.add(new Monster("Felpuggoth", 2, badConsequence, prize, 5));
 
