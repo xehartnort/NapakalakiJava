@@ -11,10 +11,9 @@ package NapakalakiGame;
  */
 public class Treasure 
 {
-    private String name;
-    private int bonus;
-    private TreasureKind type;
-    
+    final private String name;
+    final private int bonus;
+    final private TreasureKind type;
     public Treasure(String n, int bonus, TreasureKind t)
     {
         this.name=n;
@@ -34,8 +33,8 @@ public class Treasure
     @Override
     public String toString()
     {
-        return "\n\tTesoro: " + name + 
-               "\n\t\tBonus: " + Integer.toString(bonus) + 
-               "\n\t\tTreasureKind: " + type;
+        return "Tesoro: " + name + 
+               "\nBonus: " + Integer.toString(bonus) + 
+               "\nTreasureKind: " + type;
     }
 }

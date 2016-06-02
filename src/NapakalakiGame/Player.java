@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package NapakalakiGame;
-
+import GUI.Dice;
 import java.util.ArrayList;
 
 /**
@@ -36,8 +36,8 @@ public class Player {
     {
         this.dead = p.dead;
         this.level = p.level;
-        this.hiddenTreasures = p.hiddenTreasures; //habría que ver si este nivel de copiado es suficiente
-        this.visibleTreasures = p.visibleTreasures; //habría que ver si este nivel de copiado es suficiente
+        this.hiddenTreasures = p.hiddenTreasures;;
+        this.visibleTreasures = p.visibleTreasures;
         this.name = p.name;
         this.pendingBadConsequence = p.pendingBadConsequence;
         this.dealer = p.dealer;
@@ -48,7 +48,9 @@ public class Player {
     
     public int getLevels()
         { return level; }
-    
+    public BadConsequence getPendingBadConsequence(){
+        return pendingBadConsequence;
+    }
     public boolean isDead()
         { return dead; }
     
@@ -191,7 +193,7 @@ public class Player {
         return (Dice.getInstance().nextNumber()==6);
     }
     
-    protected int getCombatLevel()
+    public int getCombatLevel()
     {
         int lvl = level;
         for(Treasure i : visibleTreasures)

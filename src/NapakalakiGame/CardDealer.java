@@ -8,7 +8,6 @@ package NapakalakiGame;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -108,7 +107,7 @@ public class CardDealer {
         
         /* El gorrón en el umbral */
         badConsequence = new NumericBadConsequence("Pierdes todos tus tesoros visibles", 0,
-        Integer.MAX_VALUE,0);
+        4,0);
         prize = new Prize(3,1);
         unusedMonsters.add(new Monster("El gorrón en el umbral",10, badConsequence, prize));
         
@@ -218,7 +217,7 @@ public class CardDealer {
         unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, badConsequence, prize, -2));
         
         /* Testigos Oculares */
-        badConsequence = new NumericBadConsequence("Pierdes tus tesoros visibles. Jajaja.", 0, Integer.MAX_VALUE, 0);
+        badConsequence = new NumericBadConsequence("Pierdes tus tesoros visibles. Jajaja.", 0, 10, 0);
         prize = new Prize(2,1);
         unusedMonsters.add(new Monster("Testigos Oculares", 6, badConsequence, prize, 2));
 

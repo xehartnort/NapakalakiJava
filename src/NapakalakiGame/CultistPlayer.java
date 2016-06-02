@@ -26,7 +26,8 @@ public class CultistPlayer extends Player
         return totalCultistPlayers;
     }
     
-    protected int getCombatLevel()
+    @Override
+    public int getCombatLevel()
     {
         return (int) (1.5 * super.getCombatLevel() + 
                 this.myCultistCard.getGainedLevels() * totalCultistPlayers);
